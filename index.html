@@ -3,236 +3,140 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  
+
   <!-- Primary Meta Tags -->
-  <!-- TODO: Replace with your paper title and author names -->
-  <meta name="title" content="PAPER_TITLE - AUTHOR_NAMES">
-  <!-- TODO: Write a compelling 150-160 character description of your research -->
-  <meta name="description" content="BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS">
-  <!-- TODO: Add 5-10 relevant keywords for your research area -->
-  <meta name="keywords" content="KEYWORD1, KEYWORD2, KEYWORD3, machine learning, computer vision, AI">
-  <!-- TODO: List all authors -->
-  <meta name="author" content="FIRST_AUTHOR_NAME, SECOND_AUTHOR_NAME">
+  <meta name="title" content="BAT-CLIP: Trimodal Alignment of Brain, Audio and Text">
+  <meta name="description" content="BAT-CLIP is the first CLIP-style trimodal alignment framework for iEEG, jointly grounding neural embeddings in a frozen audio-text manifold for more robust brain-speech representations.">
+  <meta name="keywords" content="brain-speech alignment, intracranial EEG, iEEG, ECoG, contrastive learning, CLIP, audio-text alignment, speech representation learning, brain foundation model, DIVER-1, AudioCLIP">
+  <meta name="author" content="Suhyun Kim, Jinmo Han, Danny Dongyeop Han, Seong Jae Hwang, Jiook Cha">
   <meta name="robots" content="index, follow">
   <meta name="language" content="English">
-  
+
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="article">
-  <!-- TODO: Replace with your institution or lab name -->
-  <meta property="og:site_name" content="INSTITUTION_OR_LAB_NAME">
-  <!-- TODO: Same as paper title above -->
-  <meta property="og:title" content="PAPER_TITLE">
-  <!-- TODO: Same as description above -->
-  <meta property="og:description" content="BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS">
-  <!-- TODO: Replace with your actual website URL -->
-  <meta property="og:url" content="https://YOUR_DOMAIN.com/YOUR_PROJECT_PAGE">
-  <!-- TODO: Create a 1200x630px preview image and update path -->
-  <meta property="og:image" content="https://YOUR_DOMAIN.com/static/images/social_preview.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="PAPER_TITLE - Research Preview">
-  <meta property="article:published_time" content="2024-01-01T00:00:00.000Z">
-  <meta property="article:author" content="FIRST_AUTHOR_NAME">
-  <meta property="article:section" content="Research">
-  <meta property="article:tag" content="KEYWORD1">
-  <meta property="article:tag" content="KEYWORD2">
+  <meta property="og:site_name" content="BAT-CLIP">
+  <meta property="og:title" content="BAT-CLIP: Trimodal Alignment of Brain, Audio and Text">
+  <meta property="og:description" content="The first CLIP-style trimodal (brain-audio-text) alignment framework for iEEG. MLSP 2026 (Oral).">
+  <!-- TODO: set to the deployed project-page URL once known -->
+  <meta property="og:url" content="#">
+  <!-- TODO: replace with a dedicated 1200x630 social preview image -->
+  <meta property="og:image" content="static/images/fig2.png">
+  <meta property="og:image:alt" content="BAT-CLIP t-SNE embedding visualization">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-  <!-- TODO: Replace with your lab/institution Twitter handle -->
-  <meta name="twitter:site" content="@YOUR_TWITTER_HANDLE">
-  <!-- TODO: Replace with first author's Twitter handle -->
-  <meta name="twitter:creator" content="@AUTHOR_TWITTER_HANDLE">
-  <!-- TODO: Same as paper title above -->
-  <meta name="twitter:title" content="PAPER_TITLE">
-  <!-- TODO: Same as description above -->
-  <meta name="twitter:description" content="BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS">
-  <!-- TODO: Same as social preview image above -->
-  <meta name="twitter:image" content="https://YOUR_DOMAIN.com/static/images/social_preview.png">
-  <meta name="twitter:image:alt" content="PAPER_TITLE - Research Preview">
+  <meta name="twitter:title" content="BAT-CLIP: Trimodal Alignment of Brain, Audio and Text">
+  <meta name="twitter:description" content="The first CLIP-style trimodal (brain-audio-text) alignment framework for iEEG. MLSP 2026 (Oral).">
+  <meta name="twitter:image" content="static/images/fig2.png">
+  <meta name="twitter:image:alt" content="BAT-CLIP t-SNE embedding visualization">
 
-  <!-- Academic/Research Specific -->
-  <meta name="citation_title" content="PAPER_TITLE">
-  <meta name="citation_author" content="FIRST_AUTHOR_LAST, FIRST_AUTHOR_FIRST">
-  <meta name="citation_author" content="SECOND_AUTHOR_LAST, SECOND_AUTHOR_FIRST">
-  <meta name="citation_publication_date" content="2024">
-  <meta name="citation_conference_title" content="CONFERENCE_NAME">
-  <meta name="citation_pdf_url" content="https://YOUR_DOMAIN.com/static/pdfs/paper.pdf">
-  
+  <!-- Academic / Research Specific -->
+  <meta name="citation_title" content="BAT-CLIP: Trimodal Alignment of Brain, Audio and Text">
+  <meta name="citation_author" content="Kim, Suhyun">
+  <meta name="citation_author" content="Han, Jinmo">
+  <meta name="citation_author" content="Han, Danny Dongyeop">
+  <meta name="citation_author" content="Lee, Ahhyun Lucy">
+  <meta name="citation_author" content="Lee, Jewoon">
+  <meta name="citation_author" content="Gwon, Yonghyeon">
+  <meta name="citation_author" content="Paris, Zach">
+  <meta name="citation_author" content="Chung, Chun Kee">
+  <meta name="citation_author" content="Bahk, Saewoong">
+  <meta name="citation_author" content="Kim, Nam Soo">
+  <meta name="citation_author" content="Hwang, Seong Jae">
+  <meta name="citation_author" content="Cha, Jiook">
+  <meta name="citation_publication_date" content="2026">
+  <meta name="citation_conference_title" content="2026 IEEE International Workshop on Machine Learning for Signal Processing (MLSP)">
+  <meta name="citation_pdf_url" content="static/pdfs/paper.pdf">
+
   <!-- Additional SEO -->
   <meta name="theme-color" content="#2563eb">
-  <meta name="msapplication-TileColor" content="#2563eb">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  
+
   <!-- Preconnect for performance -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://ajax.googleapis.com">
-  <link rel="preconnect" href="https://documentcloud.adobe.com">
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
 
+  <title>BAT-CLIP: Trimodal Alignment of Brain, Audio and Text</title>
 
-  <!-- TODO: Replace with your paper title and authors -->
-  <title>PAPER_TITLE - AUTHOR_NAMES | Academic Research</title>
-  
   <!-- Favicon and App Icons -->
-  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
-  <link rel="apple-touch-icon" href="static/images/favicon.ico">
-  
+  <!-- Generated from the BAT-CLIP mark. favicon.svg follows the OS light/dark
+       setting; the .ico is the fallback for browsers without SVG icon support. -->
+  <link rel="icon" type="image/svg+xml" href="static/images/favicon.svg">
+  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico" sizes="16x16 32x32 48x48">
+  <link rel="apple-touch-icon" href="static/images/apple-touch-icon.png">
+
   <!-- Critical CSS - Load synchronously -->
   <link rel="stylesheet" href="static/css/bulma.min.css">
   <link rel="stylesheet" href="static/css/index.css">
-  
+  <link rel="stylesheet" href="static/css/batclip.css">
+
   <!-- Non-critical CSS - Load asynchronously -->
   <link rel="preload" href="static/css/bulma-carousel.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <link rel="preload" href="static/css/bulma-slider.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <link rel="preload" href="static/css/fontawesome.all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <link rel="preload" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  
-  <!-- Fallback for browsers that don't support preload -->
+
   <noscript>
     <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
     <link rel="stylesheet" href="static/css/bulma-slider.min.css">
     <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   </noscript>
-  
-  <!-- Fonts - Optimized loading -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  
+
+  <!-- Fonts: Space Grotesk (titles) + Inter (body) + JetBrains Mono (code) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
   <!-- Defer non-critical JavaScript -->
   <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script defer src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
   <script defer src="static/js/fontawesome.all.min.js"></script>
   <script defer src="static/js/bulma-carousel.min.js"></script>
   <script defer src="static/js/bulma-slider.min.js"></script>
   <script defer src="static/js/index.js"></script>
-  
+  <!-- Phase 3: interactive embedding explorer will be re-enabled here
+       <script defer src="static/js/embedding-explorer.js"></script> -->
+
+
   <!-- Structured Data for Academic Papers -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "ScholarlyArticle",
-    "headline": "PAPER_TITLE",
-    "description": "BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS",
+    "headline": "BAT-CLIP: Trimodal Alignment of Brain, Audio and Text",
+    "description": "BAT-CLIP is the first CLIP-style trimodal alignment framework for iEEG, jointly aligning neural embeddings to pretrained audio and text anchors in a shared frozen audio-text manifold.",
     "author": [
-      {
-        "@type": "Person",
-        "name": "FIRST_AUTHOR_NAME",
-        "affiliation": {
-          "@type": "Organization",
-          "name": "INSTITUTION_NAME"
-        }
-      },
-      {
-        "@type": "Person",
-        "name": "SECOND_AUTHOR_NAME",
-        "affiliation": {
-          "@type": "Organization",
-          "name": "INSTITUTION_NAME"
-        }
-      }
+      { "@type": "Person", "name": "Suhyun Kim", "affiliation": { "@type": "Organization", "name": "Yonsei University" } },
+      { "@type": "Person", "name": "Jinmo Han", "affiliation": { "@type": "Organization", "name": "Seoul National University" } },
+      { "@type": "Person", "name": "Danny Dongyeop Han", "affiliation": { "@type": "Organization", "name": "Seoul National University" } },
+      { "@type": "Person", "name": "Seong Jae Hwang", "affiliation": { "@type": "Organization", "name": "Yonsei University" } },
+      { "@type": "Person", "name": "Jiook Cha", "affiliation": { "@type": "Organization", "name": "Seoul National University" } }
     ],
-    "datePublished": "2024-01-01",
-    "publisher": {
-      "@type": "Organization",
-      "name": "CONFERENCE_OR_JOURNAL_NAME"
-    },
-    "url": "https://YOUR_DOMAIN.com/YOUR_PROJECT_PAGE",
-    "image": "https://YOUR_DOMAIN.com/static/images/social_preview.png",
-    "keywords": ["KEYWORD1", "KEYWORD2", "KEYWORD3", "machine learning", "computer vision"],
-    "abstract": "FULL_ABSTRACT_TEXT_HERE",
-    "citation": "BIBTEX_CITATION_HERE",
-    "isAccessibleForFree": true,
-    "license": "https://creativecommons.org/licenses/by/4.0/",
-    "mainEntity": {
-      "@type": "WebPage",
-      "@id": "https://YOUR_DOMAIN.com/YOUR_PROJECT_PAGE"
-    },
-    "about": [
-      {
-        "@type": "Thing",
-        "name": "RESEARCH_AREA_1"
-      },
-      {
-        "@type": "Thing", 
-        "name": "RESEARCH_AREA_2"
-      }
-    ]
-  }
-  </script>
-  
-  <!-- Website/Organization Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "INSTITUTION_OR_LAB_NAME",
-    "url": "https://YOUR_INSTITUTION_WEBSITE.com",
-    "logo": "https://YOUR_DOMAIN.com/static/images/favicon.ico",
-    "sameAs": [
-      "https://twitter.com/YOUR_TWITTER_HANDLE",
-      "https://github.com/YOUR_GITHUB_USERNAME"
-    ]
+    "datePublished": "2026",
+    "publisher": { "@type": "Organization", "name": "IEEE" },
+    "keywords": ["brain-speech alignment", "intracranial EEG", "contrastive learning", "CLIP", "audio-text alignment", "speech representation learning"],
+    "isAccessibleForFree": true
   }
   </script>
 </head>
 <body>
 
+  <!-- Sticky top navigation -->
+  <nav class="site-nav" aria-label="Primary navigation">
+    <div class="nav-inner">
+      <a class="nav-brand" href="#main-content" aria-label="BAT-CLIP — back to top"><svg viewBox="2 9 44 32" aria-hidden="true"><g fill="currentColor" stroke="currentColor" stroke-width="0.2" stroke-linejoin="round"><g fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"><path d="M30.445 20.664c1.72-.396 3.28-1.037 4.384-2.408c1.031-1.281 1.472-2.968 1.662-4.99c1.48.456 2.621 1.5 3.507 3.127c1.067 1.96 1.73 4.744 1.935 8.223c-5.959-.532-10.131 2.751-11.177 6.784h-4.954L24 34.765L22.198 31.4h-4.954c-1.046-4.033-5.218-7.316-11.177-6.784c.204-3.479.868-6.263 1.935-8.222c.886-1.629 2.027-2.672 3.507-3.129c.19 2.023.631 3.71 1.662 4.99c1.1 1.368 2.654 2.009 4.368 2.405l-.256-2.134c-2.916-.858-3.77-2.512-3.895-7.526q-.245 0-.483.012a8.4 8.4 0 0 0-1.512.213C6.698 12.342 4.4 17.549 4.048 24.933A44 44 0 0 0 4 27q1.044-.266 2.002-.37c6.084-.679 9.498 3.24 9.498 6.77H21l3 5.6l3-5.6h5.5c0-3.53 3.414-7.449 9.499-6.77q.957.104 2.001.37q0-1.06-.048-2.067c-.35-7.384-2.65-12.59-7.345-13.708a8.4 8.4 0 0 0-1.512-.213a10 10 0 0 0-.483-.012c-.126 5.006-.976 6.663-3.882 7.522z"/><path d="M18.89 12.006a1 1 0 0 1 1.104.884l1 9a1 1 0 0 1-1.988.22l-1-9a1 1 0 0 1 .884-1.104m10.22 0a1 1 0 0 0-1.104.884l-1 9a1 1 0 0 0 1.988.22l1-9a1 1 0 0 0-.884-1.104"/><path d="M24.005 16c-1.028.006-2.104.29-3.62.923l-.77-1.846c1.612-.674 2.97-1.07 4.38-1.077c1.412-.007 2.776.376 4.403 1.083l-.796 1.834c-1.502-.652-2.575-.922-3.597-.917"/></g></g></svg></a>
+      <div class="nav-links">
+        <a href="#abstract">Abstract</a>
+        <a href="#method">Method</a>
+        <a href="#results">Results</a>
+        <a href="#BibTeX">BibTeX</a>
+      </div>
+    </div>
+  </nav>
 
   <!-- Scroll to Top Button -->
   <button class="scroll-to-top" onclick="scrollToTop()" title="Scroll to top" aria-label="Scroll to top">
     <i class="fas fa-chevron-up"></i>
   </button>
-
-  <!-- More Works Dropdown -->
-  <div class="more-works-container">
-    <button class="more-works-btn" onclick="toggleMoreWorks()" title="View More Works from Our Lab">
-      <i class="fas fa-flask"></i>
-      More Works
-      <i class="fas fa-chevron-down dropdown-arrow"></i>
-    </button>
-    <div class="more-works-dropdown" id="moreWorksDropdown">
-      <div class="dropdown-header">
-        <h4>More Works from Our Lab</h4>
-        <button class="close-btn" onclick="toggleMoreWorks()">
-          <i class="fas fa-times"></i>
-        </button>
-      </div>
-      <div class="works-list">
-        <!-- TODO: Replace with your lab's related works -->
-        <a href="https://arxiv.org/abs/PAPER_ID_1" class="work-item" target="_blank">
-          <div class="work-info">
-            <!-- TODO: Replace with actual paper title -->
-            <h5>Paper Title 1</h5>
-            <!-- TODO: Replace with brief description -->
-            <p>Brief description of the work and its main contribution.</p>
-            <!-- TODO: Replace with venue and year -->
-            <span class="work-venue">Conference/Journal 2024</span>
-          </div>
-          <i class="fas fa-external-link-alt"></i>
-        </a>
-        <!-- TODO: Add more related works or remove extra items -->
-        <a href="https://arxiv.org/abs/PAPER_ID_2" class="work-item" target="_blank">
-          <div class="work-info">
-            <h5>Paper Title 2</h5>
-            <p>Brief description of the work and its main contribution.</p>
-            <span class="work-venue">Conference/Journal 2023</span>
-          </div>
-          <i class="fas fa-external-link-alt"></i>
-        </a>
-        <a href="https://arxiv.org/abs/PAPER_ID_3" class="work-item" target="_blank">
-          <div class="work-info">
-            <h5>Paper Title 3</h5>
-            <p>Brief description of the work and its main contribution.</p>
-            <span class="work-venue">Conference/Journal 2023</span>
-          </div>
-          <i class="fas fa-external-link-alt"></i>
-        </a>
-      </div>
-    </div>
-  </div>
 
   <main id="main-content">
   <section class="hero">
@@ -240,281 +144,425 @@
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
-            <!-- TODO: Replace with your paper title -->
-            <h1 class="title is-1 publication-title">Academic Project Page</h1>
-            <div class="is-size-5 publication-authors">
-              <!-- TODO: Replace with your paper authors and their personal links -->
-              <span class="author-block">
-                <a href="FIRST AUTHOR PERSONAL LINK" target="_blank">First Author</a><sup>*</sup>,</span>
-                <span class="author-block">
-                  <a href="SECOND AUTHOR PERSONAL LINK" target="_blank">Second Author</a><sup>*</sup>,</span>
-                  <span class="author-block">
-                    <a href="THIRD AUTHOR PERSONAL LINK" target="_blank">Third Author</a>
-                  </span>
-                  </div>
+            <p class="publication-eyebrow">MLSP 2026 &middot; Oral</p>
+            <h1 class="title is-1 publication-title">BAT-CLIP: Trimodal Alignment of Brain, Audio and Text</h1>
 
-                  <div class="is-size-5 publication-authors">
-                    <!-- TODO: Replace with your institution and conference/journal info -->
-                    <span class="author-block">Institution Name<br>Conference name and year</span>
-                    <!-- TODO: Remove this line if no equal contribution -->
-                    <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span>
-                  </div>
-
-                  <div class="column has-text-centered">
-                    <div class="publication-links">
-                         <!-- TODO: Update with your arXiv paper ID -->
-                      <span class="link-block">
-                        <a href="https://arxiv.org/pdf/<ARXIV PAPER ID>.pdf" target="_blank"
-                        class="external-link button is-normal is-rounded is-dark">
-                        <span class="icon">
-                          <i class="fas fa-file-pdf"></i>
-                        </span>
-                        <span>Paper</span>
-                      </a>
-                    </span>
-
-                    <!-- TODO: Add your supplementary material PDF or remove this section -->
-                    <span class="link-block">
-                      <a href="static/pdfs/supplementary_material.pdf" target="_blank"
-                      class="external-link button is-normal is-rounded is-dark">
-                      <span class="icon">
-                        <i class="fas fa-file-pdf"></i>
-                      </span>
-                      <span>Supplementary</span>
-                    </a>
-                  </span>
-
-                  <!-- TODO: Replace with your GitHub repository URL -->
-                  <span class="link-block">
-                    <a href="https://github.com/YOUR REPO HERE" target="_blank"
-                    class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
-                      <i class="fab fa-github"></i>
-                    </span>
-                    <span>Code</span>
-                  </a>
-                </span>
-
-                <!-- TODO: Update with your arXiv paper ID -->
-                <span class="link-block">
-                  <a href="https://arxiv.org/abs/<ARXIV PAPER ID>" target="_blank"
-                  class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                    <i class="ai ai-arxiv"></i>
-                  </span>
-                  <span>arXiv</span>
-                </a>
-              </span>
+            <div class="is-size-6 publication-authors">
+              <span class="author-block">Suhyun Kim<sup>1,*</sup>,</span>
+              <span class="author-block">Jinmo Han<sup>2,*</sup>,</span>
+              <span class="author-block">Danny Dongyeop Han<sup>2,*</sup>,</span>
+              <span class="author-block">Ahhyun Lucy Lee<sup>2</sup>,</span>
+              <span class="author-block">Jewoon Lee<sup>2</sup>,</span>
+              <span class="author-block">Yonghyeon Gwon<sup>2</sup>,</span>
+              <span class="author-block">Zach Paris<sup>3</sup>,</span>
+              <span class="author-block">Chun Kee Chung<sup>2</sup>,</span>
+              <span class="author-block">Saewoong Bahk<sup>2</sup>,</span>
+              <span class="author-block">Nam Soo Kim<sup>2</sup>,</span>
+              <span class="author-block">Seong Jae Hwang<sup>1</sup>,</span>
+              <span class="author-block">Jiook Cha<sup>2,&dagger;</sup></span>
             </div>
+
+            <div class="publication-authors author-affiliations">
+              <span class="author-block"><sup>1</sup>Yonsei University</span>&nbsp;&nbsp;
+              <span class="author-block"><sup>2</sup>Seoul National University</span>&nbsp;&nbsp;
+              <span class="author-block"><sup>3</sup>Dartmouth College</span>
+            </div>
+            <div class="publication-authors publication-notes">
+              <span class="eql-cntrb"><sup>*</sup>Equal contribution</span>&nbsp;&nbsp;
+              <span class="eql-cntrb"><sup>&dagger;</sup>Corresponding author</span>
+            </div>
+
+            <div class="has-text-centered" style="margin-top: 0.6rem;">
+              <div class="publication-links">
+                <!-- Not public yet. To publish a link, swap the <span> for:
+                     <a href="URL" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                     and drop the is-soon class. Paper PDF lives at static/pdfs/paper.pdf. -->
+                <span class="link-block">
+                  <span class="button is-normal is-rounded is-soon" aria-disabled="true">
+                    <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                    <span>Paper</span>
+                  </span>
+                </span>
+                <!-- arXiv (TODO: add arXiv id) -->
+                <span class="link-block">
+                  <span class="button is-normal is-rounded is-soon" aria-disabled="true">
+                    <span class="icon"><i class="ai ai-arxiv"></i></span>
+                    <span>arXiv</span>
+                  </span>
+                </span>
+                <!-- Code (TODO: add GitHub repo URL) -->
+                <span class="link-block">
+                  <span class="button is-normal is-rounded is-soon" aria-disabled="true">
+                    <span class="icon"><i class="fab fa-github"></i></span>
+                    <span>Code</span>
+                  </span>
+                </span>
+              </div>
+              <p class="links-note">Coming soon &mdash; links will be added on release.</p>
+            </div>
+
+            <!-- TL;DR (hidden for now; styles kept in batclip.css). To re-enable,
+                 uncomment and edit the content:
+            <div class="tldr-callout" id="tldr" style="margin-top:1.25rem;">
+              <p><span class="tldr-lead">TL;DR.</span> ... </p>
+            </div>
+            -->
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- Teaser video-->
-<section class="hero teaser">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-      <!-- TODO: Replace with your teaser video -->
-      <video poster="" id="tree" autoplay controls muted loop height="100%" preload="metadata">
-        <!-- TODO: Add your video file path here -->
-        <source src="static/videos/banner_video.mp4" type="video/mp4">
-      </video>
-      <!-- TODO: Replace with your video description -->
-      <h2 class="subtitle has-text-centered">
-        Aliquam vitae elit ullamcorper tellus egestas pellentesque. Ut lacus tellus, maximus vel lectus at, placerat pretium mi. Maecenas dignissim tincidunt vestibulum. Sed consequat hendrerit nisl ut maximus. 
-      </h2>
-    </div>
-  </div>
-</section>
-<!-- End teaser video -->
-
-<!-- Paper abstract -->
-<section class="section hero is-light">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
-          <!-- TODO: Replace with your paper abstract -->
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ullamcorper tellus sed ante aliquam tempus. Etiam porttitor urna feugiat nibh elementum, et tempor dolor mattis. Donec accumsan enim augue, a vulputate nisi sodales sit amet. Proin bibendum ex eget mauris cursus euismod nec et nibh. Maecenas ac gravida ante, nec cursus dui. Vivamus purus nibh, placerat ac purus eget, sagittis vestibulum metus. Sed vestibulum bibendum lectus gravida commodo. Pellentesque auctor leo vitae sagittis suscipit.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- End paper abstract -->
-
-
-<!-- Image carousel -->
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <div id="results-carousel" class="carousel results-carousel">
-       <div class="item">
-        <!-- TODO: Replace with your research result images -->
-        <img src="static/images/carousel1.jpg" alt="First research result visualization" loading="lazy"/>
-        <!-- TODO: Replace with description of this result -->
-        <h2 class="subtitle has-text-centered">
-          First image description.
-        </h2>
-      </div>
-      <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel2.jpg" alt="Second research result visualization" loading="lazy"/>
-        <h2 class="subtitle has-text-centered">
-          Second image description.
-        </h2>
-      </div>
-      <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel3.jpg" alt="Third research result visualization" loading="lazy"/>
-        <h2 class="subtitle has-text-centered">
-         Third image description.
-       </h2>
-     </div>
-     <div class="item">
-      <!-- Your image here -->
-      <img src="static/images/carousel4.jpg" alt="Fourth research result visualization" loading="lazy"/>
-      <h2 class="subtitle has-text-centered">
-        Fourth image description.
-      </h2>
-    </div>
-  </div>
-</div>
-</div>
-</section>
-<!-- End image carousel -->
-
-
-
-
-<!-- Youtube video -->
-<section class="hero is-small is-light">
-  <div class="hero-body">
-    <div class="container">
-      <!-- Paper video. -->
-      <h2 class="title is-3">Video Presentation</h2>
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          
-          <div class="publication-video">
-            <!-- TODO: Replace with your YouTube video ID -->
-            <iframe src="https://www.youtube.com/embed/JkaxUblCGz0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- End youtube video -->
-
-
-<!-- Video carousel -->
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title is-3">Another Carousel</h2>
-      <div id="results-carousel" class="carousel results-carousel">
-        <div class="item item-video1">
-          <!-- TODO: Add poster image for better preview -->
-          <video poster="" id="video1" controls muted loop height="100%" preload="metadata">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel1.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video2">
-          <!-- TODO: Add poster image for better preview -->
-          <video poster="" id="video2" controls muted loop height="100%" preload="metadata">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel2.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video3">
-          <!-- TODO: Add poster image for better preview -->
-          <video poster="" id="video3" controls muted loop height="100%" preload="metadata">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel3.mp4" type="video/mp4">
-          </video>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- End video carousel -->
-
-
-
-
-
-
-<!-- Paper poster -->
-<section class="hero is-small is-light">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title">Poster</h2>
-
-      <!-- TODO: Replace with your poster PDF -->
-      <iframe  src="static/pdfs/sample.pdf" width="100%" height="550">
-          </iframe>
-        
       </div>
     </div>
   </section>
-<!--End paper poster -->
 
-
-
-<!--BibTex citation -->
-  <section class="section" id="BibTeX">
-    <div class="container is-max-desktop content">
-      <div class="bibtex-header">
-        <h2 class="title">BibTeX</h2>
-        <button class="copy-bibtex-btn" onclick="copyBibTeX()" title="Copy BibTeX to clipboard">
-          <i class="fas fa-copy"></i>
-          <span class="copy-text">Copy</span>
-        </button>
-      </div>
-      <pre id="bibtex-code"><code>@article{YourPaperKey2024,
-  title={Your Paper Title Here},
-  author={First Author and Second Author and Third Author},
-  journal={Conference/Journal Name},
-  year={2024},
-  url={https://your-domain.com/your-project-page}
-}</code></pre>
-    </div>
-</section>
-<!--End BibTex citation -->
-
-
-  <footer class="footer">
-  <div class="container">
-    <div class="columns is-centered">
-      <div class="column is-8">
-        <div class="content">
-
-          <p>
-            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
-            You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
-            Commons Attribution-ShareAlike 4.0 International License</a>.
+  <!-- ============================================================
+       HERO VISUAL SLOT
+       Phase 1: static Fig. 2 (t-SNE). Swap the inner .hero-visual__media
+       for a <video> (Phase 2) or an interactive <canvas> (Phase 3)
+       without changing the surrounding layout. See static/css/batclip.css.
+       ============================================================ -->
+  <section class="hero teaser">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+        <div class="hero-visual">
+          <div class="hero-visual__media hero-visual__fallback">
+            <img src="static/images/fig2.png"
+                 alt="2D t-SNE of word-level brain embeddings for DIVER-1, BA-CLIP, BT-CLIP, and BAT-CLIP (Sub03); color denotes sentence, shape denotes speaker.">
+          </div>
+          <!-- Phase 3: interactive layer mounts here
+          <div class="hero-visual__interactive" id="hero-embedding-canvas"></div>
+          -->
+          <p class="hero-caption">
+            <b>Fig. 2. Learned word embeddings (t-SNE).</b> Sub03, colored by sentence (shape = speaker) &mdash;
+            <b>BAT-CLIP</b> groups same-sentence words most tightly.
           </p>
-
+        </div>
+        <div class="model-legend">
+          <span class="ml-pill"><b>DIVER-1</b> · No alignment</span>
+          <span class="ml-pill"><b>BA-CLIP</b> · Brain&harr;Audio</span>
+          <span class="ml-pill"><b>BT-CLIP</b> · Brain&harr;Text</span>
+          <span class="ml-pill is-ours"><b>BAT-CLIP</b> · Brain&harr;Audio &amp; Text · Ours</span>
         </div>
       </div>
     </div>
-  </div>
-</footer>
+  </section>
 
-<!-- Statcounter tracking code -->
-  
-<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+  <!-- Abstract -->
+  <section class="section hero is-light" id="abstract">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              Decoding and interpreting naturalistic speech from the brain increasingly relies on
+              alignment to pretrained speech and language representation spaces. However, current
+              CLIP-style brain&ndash;speech alignment grounds neural activity to a single anchor
+              modality&mdash;audio or text&mdash;despite the brain's inherently multimodal speech
+              processing. This induces a trade-off: audio anchoring preserves temporal structure but
+              weakens linguistic separability, while text anchoring captures semantics yet discards
+              acoustic detail.
+            </p>
+            <p>
+              We propose <b><i>BAT-CLIP</i></b>, the first CLIP-style trimodal alignment framework for
+              iEEG that jointly aligns neural embeddings to both pretrained audio and text anchors in a
+              shared, frozen audio&ndash;text manifold. On the naturalistic Podcast benchmark,
+              <i>BAT-CLIP</i> yields more robust representations than bimodal CLIP baselines. We also
+              highlight the importance of using self-supervised foundation models for CLIP training.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <!-- End of Statcounter Code -->
+  <!-- Method -->
+  <section class="section" id="method">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 has-text-centered">Method</h2>
+      <div class="method-figure">
+        <img src="static/images/fig1.png"
+             alt="BAT-CLIP framework: a trainable DIVER-1 brain encoder aligned to frozen AudioCLIP audio and text anchors via a trimodal contrastive objective.">
+      </div>
+      <p class="figure-caption has-text-centered">
+        <b>Fig. 1. Overview of <i>BAT-CLIP</i>.</b> A trainable brain encoder
+        <i>f<sub>&theta;</sub></i>, initialized from the brain foundation model DIVER-1, maps neural
+        windows to brain embeddings <i>z<sup>B</sup></i>. Frozen AudioCLIP encoders provide audio
+        anchors <i>z<sup>A</sup></i> and text anchors <i>z<sup>T</sup></i>. BAT-CLIP optimizes a
+        trimodal contrastive objective <i>L<sub>Total</sub></i> to align neural embeddings with the
+        joint audio&ndash;text representation space.
+      </p>
+      <div class="content has-text-justified" style="margin-top: 1.5rem;">
+        <ul>
+          <li><b>Alignment prior.</b> The brain encoder is initialized from DIVER-1, an iEEG foundation
+            model pretrained with self-supervised masked reconstruction, then adapted with a lightweight
+            two-layer MLP projection to a shared <i>d</i>=1024 space with &#8467;<sub>2</sub> normalization.
+            The pretrained weights act as a prior that curbs overfitting on the ~30 min of paired
+            brain&ndash;audio&ndash;text data available for alignment.</li>
+          <li><b>Shared audio&ndash;linguistic space.</b> Audio waveforms and transcripts are encoded by the
+            pretrained AudioCLIP audio/text encoders, kept frozen so the brain encoder matches a stable,
+            well-regularized manifold in the low-data regime.</li>
+          <li><b>Trimodal contrastive alignment.</b> Symmetric Brain&ndash;Audio and Brain&ndash;Text
+            cross-entropy losses are combined with equal weight into
+            <i>L<sub>Total</sub></i> = &frac12;(<i>L<sub>BA</sub></i> + <i>L<sub>BT</sub></i>),
+            aligning brain embeddings to both anchors at once.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
-  </body>
-  </html>
+  <!-- Results -->
+  <section class="section hero is-light" id="results">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 has-text-centered">Results</h2>
+
+      <div class="stat-row">
+        <div class="stat-card">
+          <div class="stat-val">5<small>/6</small></div>
+          <div class="stat-lab">Best aligned model <span class="scope">&middot; 9 subjects</span></div>
+          <div class="stat-desc">Probe tasks where BAT-CLIP beats the other CLIP variants (BA/BT-CLIP).</div>
+        </div>
+        <div class="stat-card is-ours">
+          <div class="stat-val">0.157<small>&nbsp;/ 1.23</small></div>
+          <div class="stat-lab">Clustering (CC / SR) <span class="scope">&middot; Sub03</span></div>
+          <div class="stat-desc">Sentence-level clustering &mdash; best of all models (DIVER-1: 0.0004).</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-val">~30<small>&nbsp;min</small></div>
+          <div class="stat-lab">Total paired data</div>
+          <div class="stat-desc">Only ~30 min of paired brain&ndash;audio&ndash;text, atop a 5.3k-hour SSL prior.</div>
+        </div>
+      </div>
+
+      <!-- Table 1: Overall decoding -->
+      <h3 class="title is-5" style="margin-top:1.5rem;">Overall decoding performance</h3>
+      <div class="result-table-wrap">
+        <table class="result-table">
+          <thead>
+            <tr>
+              <th rowspan="2">Method</th><th rowspan="2">Type</th>
+              <th colspan="2">Content</th><th colspan="2">Onset</th><th colspan="2">POS</th>
+              <th colspan="2">GPT Surprisal</th><th colspan="2">Word Emb</th><th colspan="2">Whisper</th>
+            </tr>
+            <tr class="subhead">
+              <th>AUC</th><th>&Delta;</th><th>AUC</th><th>&Delta;</th><th>AUC</th><th>&Delta;</th>
+              <th>AUC</th><th>&Delta;</th><th>AvgAUC</th><th>&Delta;</th><th>Acc</th><th>&Delta;</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>CNN (Baseline)<sup>&dagger;</sup></td><td>Sup</td>
+              <td>0.5498</td><td>&ndash;</td>
+              <td class="second">0.7519</td><td>&ndash;</td>
+              <td>0.5653</td><td>&ndash;</td>
+              <td>0.5019</td><td>&ndash;</td>
+              <td>0.6260</td><td>&ndash;</td>
+              <td>0.6634</td><td>&ndash;</td>
+            </tr>
+            <tr class="group-sep">
+              <td>BrainBERT</td><td>SSL</td>
+              <td>0.5505</td><td class="delta-pos">+0.13%</td>
+              <td>0.6341</td><td class="delta-neg">-15.67%</td>
+              <td>0.5325</td><td class="delta-neg">-5.80%</td>
+              <td>0.5157</td><td class="delta-pos">+2.75%</td>
+              <td>0.5533</td><td class="delta-neg">-11.61%</td>
+              <td>0.5805</td><td class="delta-neg">-12.49%</td>
+            </tr>
+            <tr>
+              <td>PopT</td><td>SSL</td>
+              <td>0.4950</td><td class="delta-neg">-9.97%</td>
+              <td>0.4654</td><td class="delta-neg">-38.10%</td>
+              <td>0.5031</td><td class="delta-neg">-11.00%</td>
+              <td>0.5022</td><td class="delta-pos">+0.06%</td>
+              <td>0.5002</td><td class="delta-neg">-20.10%</td>
+              <td>0.5014</td><td class="delta-neg">-24.42%</td>
+            </tr>
+            <tr>
+              <td>DIVER-1</td><td>SSL</td>
+              <td>0.5645</td><td class="delta-pos">+2.67%</td>
+              <td class="best">0.7729</td><td class="delta-pos best">+2.79%</td>
+              <td>0.5656</td><td class="delta-pos">+0.05%</td>
+              <td>0.5155</td><td class="delta-pos">+2.71%</td>
+              <td>0.6450</td><td class="delta-pos">+3.04%</td>
+              <td>0.7022</td><td class="delta-pos">+5.85%</td>
+            </tr>
+            <tr class="group-sep">
+              <td><i>BA-CLIP</i></td><td>Align</td>
+              <td class="best">0.5840</td><td class="delta-pos best">+6.31%</td>
+              <td>0.6560</td><td class="delta-neg">-12.61%</td>
+              <td>0.5673</td><td class="delta-pos">+0.32%</td>
+              <td>0.5169</td><td class="delta-pos">+3.02%</td>
+              <td>0.6468</td><td class="delta-pos">+4.26%</td>
+              <td>0.7141</td><td class="delta-pos">+7.75%</td>
+            </tr>
+            <tr>
+              <td><i>BT-CLIP</i></td><td>Align</td>
+              <td>0.5813</td><td class="delta-pos">+5.82%</td>
+              <td>0.6562</td><td class="delta-neg">-12.56%</td>
+              <td class="second">0.5709</td><td class="delta-pos second">+0.97%</td>
+              <td class="second">0.5203</td><td class="delta-pos second">+3.69%</td>
+              <td class="second">0.6510</td><td class="delta-pos second">+4.94%</td>
+              <td class="second">0.7157</td><td class="delta-pos second">+7.98%</td>
+            </tr>
+            <tr class="is-ours group-sep">
+              <td><b><i>BAT-CLIP</i> (Ours)</b></td><td>Align</td>
+              <td class="second">0.5819</td><td class="delta-pos second">+5.96%</td>
+              <td>0.6589</td><td class="delta-neg">-12.18%</td>
+              <td class="best">0.5740</td><td class="delta-pos best">+1.50%</td>
+              <td class="best">0.5229</td><td class="delta-pos best">+4.21%</td>
+              <td class="best">0.6512</td><td class="delta-pos best">+5.01%</td>
+              <td class="best">0.7162</td><td class="delta-pos best">+8.09%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="table-note">
+        <b>Table 1.</b> Overall decoding performance averaged over 9 subjects. &Delta; is the relative
+        gain over the supervised CNN baseline. <sup>&dagger;</sup>CNN uses full fine-tuning; all other
+        methods use linear probing. <span class="best">Bold</span> = best, <span class="second">underline</span>
+        = second-best per column. BAT-CLIP is the best aligned model on 5 of 6 probe tasks, and lifts most
+        probes above the unaligned <b>DIVER-1</b> backbone (Onset excepted).
+      </p>
+
+      <!-- Table 2: Effect of SSL initialization -->
+      <h3 class="title is-5" style="margin-top:2.5rem;">Effect of SSL pretraining (initialization)</h3>
+      <div class="result-table-wrap">
+        <table class="result-table">
+          <thead>
+            <tr>
+              <th rowspan="2">Method</th><th rowspan="2">Init.</th>
+              <th colspan="2">Content</th><th colspan="2">Onset</th><th colspan="2">POS</th>
+              <th colspan="2">GPT Surprisal</th><th colspan="2">Word Emb</th><th colspan="2">Whisper</th>
+            </tr>
+            <tr class="subhead">
+              <th>AUC</th><th>&Delta;</th><th>AUC</th><th>&Delta;</th><th>AUC</th><th>&Delta;</th>
+              <th>AUC</th><th>&Delta;</th><th>AvgAUC</th><th>&Delta;</th><th>Acc</th><th>&Delta;</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td rowspan="2"><i>BA-CLIP</i></td><td class="init">Scratch</td>
+              <td>0.5671</td><td class="delta-pos">+3.14%</td>
+              <td class="best">0.7792</td><td class="delta-pos best">+3.75%</td>
+              <td>0.5624</td><td class="delta-neg">-0.35%</td>
+              <td>0.5143</td><td class="delta-pos">+2.55%</td>
+              <td>0.6059</td><td class="delta-neg">-2.33%</td>
+              <td>0.6609</td><td class="delta-pos">+0.05%</td>
+            </tr>
+            <tr>
+              <td class="init">DIVER-1</td>
+              <td class="best">0.5840</td><td class="delta-pos best">+6.31%</td>
+              <td>0.6560</td><td class="delta-neg">-12.61%</td>
+              <td class="best">0.5673</td><td class="delta-pos best">+0.32%</td>
+              <td class="best">0.5169</td><td class="delta-pos best">+3.02%</td>
+              <td class="best">0.6468</td><td class="delta-pos best">+4.26%</td>
+              <td class="best">0.7141</td><td class="delta-pos best">+7.75%</td>
+            </tr>
+            <tr class="group-sep">
+              <td rowspan="2"><i>BT-CLIP</i></td><td class="init">Scratch</td>
+              <td>0.5650</td><td class="delta-pos">+2.85%</td>
+              <td class="best">0.7822</td><td class="delta-pos best">+4.19%</td>
+              <td>0.5635</td><td class="delta-neg">-0.18%</td>
+              <td>0.5120</td><td class="delta-pos">+2.10%</td>
+              <td>0.6296</td><td class="delta-pos">+1.52%</td>
+              <td>0.6607</td><td class="delta-neg">-0.02%</td>
+            </tr>
+            <tr>
+              <td class="init">DIVER-1</td>
+              <td class="best">0.5813</td><td class="delta-pos best">+5.82%</td>
+              <td>0.6562</td><td class="delta-neg">-12.56%</td>
+              <td class="best">0.5709</td><td class="delta-pos best">+0.97%</td>
+              <td class="best">0.5203</td><td class="delta-pos best">+3.69%</td>
+              <td class="best">0.6510</td><td class="delta-pos best">+4.94%</td>
+              <td class="best">0.7157</td><td class="delta-pos best">+7.98%</td>
+            </tr>
+            <tr class="group-sep is-ours">
+              <td rowspan="2"><b><i>BAT-CLIP</i></b></td><td class="init">Scratch</td>
+              <td>0.5586</td><td class="delta-pos">+1.70%</td>
+              <td class="best">0.7600</td><td class="delta-pos best">+0.94%</td>
+              <td>0.5480</td><td class="delta-neg">-2.94%</td>
+              <td>0.5119</td><td class="delta-pos">+2.09%</td>
+              <td>0.6123</td><td class="delta-neg">-1.32%</td>
+              <td>0.6463</td><td class="delta-neg">-2.36%</td>
+            </tr>
+            <tr class="is-ours">
+              <td class="init">DIVER-1</td>
+              <td class="best">0.5819</td><td class="delta-pos best">+5.96%</td>
+              <td>0.6589</td><td class="delta-neg">-12.18%</td>
+              <td class="best">0.5740</td><td class="delta-pos best">+1.50%</td>
+              <td class="best">0.5229</td><td class="delta-pos best">+4.21%</td>
+              <td class="best">0.6512</td><td class="delta-pos best">+5.01%</td>
+              <td class="best">0.7162</td><td class="delta-pos best">+8.09%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="table-note">
+        <b>Table 2.</b> CLIP-aligned models trained from scratch vs. initialized from pretrained DIVER-1.
+        <span class="best">Bold</span> marks the stronger initialization per column within each method.
+        Pretrained DIVER-1 initialization is key to realizing the gains from trimodal alignment; onset is
+        the exception, where timing-critical transient cues favor training from scratch.
+      </p>
+
+      <h3 class="title is-5" style="margin-top:2.5rem;">Embedding-space clustering</h3>
+      <div class="columns is-centered">
+        <div class="column is-four-fifths">
+          <div class="result-table-wrap">
+            <table class="result-table">
+              <thead>
+                <tr><th>Method</th><th>Cosine Coherence (&uarr;)</th><th>Separation Ratio (&uarr;)</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>DIVER-1 (SSL)</td><td>0.0004</td><td>0.95</td></tr>
+                <tr><td><i>BA-CLIP</i></td><td>0.0789</td><td>1.09</td></tr>
+                <tr><td><i>BT-CLIP</i></td><td>0.0954</td><td>1.04</td></tr>
+                <tr class="is-ours"><td><b><i>BAT-CLIP</i> (Ours)</b></td><td class="best">0.1572</td><td class="best">1.23</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="table-note">
+            <b>Table 3.</b> Sentence-level clustering of the word embeddings in Fig. 2 (Sub03). Higher is better;
+            BAT-CLIP yields the tightest intra-sentence grouping and strongest inter-sentence separation.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- Citation / BibTeX -->
+  <section class="section hero is-light" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title is-3 has-text-centered">BibTeX</h2>
+      <pre id="bibtex-code"><code>@inproceedings{kim2026batclip,
+  title     = {BAT-CLIP: Trimodal Alignment of Brain, Audio and Text},
+  author    = {Kim, Suhyun and Han, Jinmo and Han, Danny Dongyeop and
+               Lee, Ahhyun Lucy and Lee, Jewoon and Gwon, Yonghyeon and
+               Paris, Zach and Chung, Chun Kee and Bahk, Saewoong and
+               Kim, Nam Soo and Hwang, Seong Jae and Cha, Jiook},
+  booktitle = {IEEE International Workshop on Machine Learning for Signal Processing (MLSP)},
+  year      = {2026}
+}</code></pre>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a>
+              which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+              You are free to borrow the source code of this website, we just ask that you link back to this page in the footer.
+              <br> This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+              Commons Attribution-ShareAlike 4.0 International License</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  </main>
+</body>
+</html>

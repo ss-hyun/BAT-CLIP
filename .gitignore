@@ -1,0 +1,6 @@
+.claude/settings.local.json
+
+# The global gitignore (~/.gitignore_global) excludes *.png, which would silently
+# drop the figures this page renders. Track the ones under static/images/ so a
+# Pages deploy is not missing them. Subdirectories such as _originals/ stay out.
+!static/images/*.png

@@ -1,0 +1,309 @@
+/* ============================================================
+   BAT-CLIP project page — custom styles
+   Built to match the template's design tokens (see index.css :root):
+   --border-radius, --shadow-md/-lg, --transition, --border-color,
+   --text-secondary, --primary-color, --background-primary ...
+   Keep template files (index.css) untouched; project-specific
+   overrides live here.
+   ============================================================ */
+
+/* ============================================================
+   FONTS — Space Grotesk titles / Inter body / JetBrains Mono code.
+   index.css hardcodes 'Inter' with !important in several places,
+   so these overrides use !important and load after index.css.
+   ============================================================ */
+body,
+p, li, td, th, .content, .subtitle, .table-note, .figure-caption,
+.author-block, .publication-authors {
+  font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif !important;
+}
+.title, .title.is-1, .title.is-2, .title.is-3, .title.is-4, .title.is-5,
+.publication-title, .publication-venue,
+h1, h2, h3, .tldr-card h3 {
+  font-family: 'Space Grotesk', 'Inter', sans-serif !important;
+}
+#bibtex-code, #bibtex-code code, pre code {
+  font-family: 'JetBrains Mono', 'SF Mono', 'Cascadia Code', ui-monospace, monospace !important;
+}
+
+/* ---------- Hero header ---------- */
+.publication-title { line-height: 1.12; margin-bottom: 0.3rem; }
+.publication-eyebrow {
+  font-family: 'Space Grotesk', 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 0.82rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin: 0 0 0.4rem;
+}
+.publication-authors { line-height: 1.4; }
+.publication-authors sup { color: var(--text-light); font-weight: 600; }
+/* gentle size steps: names 1rem > affiliations 0.86 > notes 0.78 */
+.author-affiliations { margin-top: -0.06rem; font-size: 0.86rem; line-height: 1.0; color: var(--text-secondary); }
+.author-affiliations sup { color: var(--text-light); }
+.publication-notes { margin-top: -0.34rem; line-height: 1.0; }
+.publication-notes .eql-cntrb { font-size: 0.78rem; font-style: normal; }
+/* refined header buttons — pill shape (override template's 12px !important) */
+.publication-links .button {
+  font-size: 0.82rem;
+  font-weight: 500 !important;
+  height: auto !important;
+  padding: 0.7rem 1.35em;
+  border-radius: 999px !important;
+  letter-spacing: 0.005em;
+}
+.publication-links .button .icon:first-child { margin-right: 0.35em; margin-left: -0.1em; }
+/* keep icon size fixed regardless of the smaller label text */
+.publication-links .button .icon,
+.publication-links .button .icon i { font-size: 1rem; }
+
+/* ============================================================
+   HERO VISUAL SLOT  (#hero-visual)
+   ------------------------------------------------------------
+   Swappable main-image position. Built as a self-contained
+   container so it can evolve in phases WITHOUT touching the
+   surrounding page:
+     Phase 1 (now) : <img> of Fig. 2 (t-SNE)          -> .hero-visual__media
+     Phase 2       : <video autoplay muted loop> mp4  -> same slot
+     Phase 3       : interactive <canvas>/<div>       -> .hero-visual__interactive
+                     with the image/video kept as .hero-visual__fallback.
+   Styling matches the template's .publication-body img (rounded + shadow).
+   ============================================================ */
+.hero-visual {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  background: var(--background-primary);
+  box-shadow: var(--shadow-md);
+  transition: var(--transition);
+}
+.hero-visual:hover { box-shadow: var(--shadow-lg); }
+.hero-visual__media,
+.hero-visual__media img,
+.hero-visual__media video,
+.hero-visual__media canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.hero-visual__fallback { position: relative; z-index: 0; }
+.hero-visual__interactive { position: absolute; inset: 0; z-index: 1; }
+.hero-caption {
+  margin: 0;
+  padding: 0.7rem 1.2rem 0.85rem;
+  border-top: 1px solid var(--border-color);
+  font-size: 0.78rem;
+  line-height: 1.5;
+  color: var(--text-light);
+  text-align: center;
+}
+.hero-caption b { color: var(--text-secondary); font-weight: 600; }
+
+/* ---------- Model legend (compact pills under the hero figure) ---------- */
+.model-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 10px;
+  justify-content: center;
+  margin-top: 1.1rem;
+}
+.ml-pill {
+  border: 1px solid var(--border-color);
+  border-radius: 999px;
+  padding: 6px 14px;
+  font-size: 0.86rem;
+  color: var(--text-secondary);
+  background: var(--background-primary);
+}
+.ml-pill b { font-family: 'Space Grotesk', 'Inter', sans-serif; font-weight: 700; color: var(--text-primary); }
+.ml-pill.is-ours { border-color: var(--primary-color); background: var(--background-accent); }
+.ml-pill.is-ours b { color: var(--primary-color); }
+
+/* ---------- Sticky top navigation ---------- */
+html { scroll-padding-top: 68px; }
+.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  background: rgba(255, 255, 255, 0.9);
+  border-bottom: 1px solid var(--border-color);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+.nav-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 24px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.nav-brand {
+  display: inline-flex;
+  align-items: center;
+  /* the brand anchors the bar; the links stay light so they recede behind it */
+  color: #000;
+}
+/* scaleY is a leftover from the previous, chunkier mark, which had no stroke to
+   thin. The current mark does, so this squash is optional - drop it to show the
+   artwork at its designed proportions. */
+.nav-brand svg {
+  display: block;
+  height: 32px;
+  width: auto;
+  transform: scaleY(0.86);
+  transform-origin: center;
+}
+/* Line weight lives on the mark itself: stroke-width on the <svg> in index.html.
+   The mark paints fill and stroke in the same color, so the stroke only fattens
+   the outline. 0.8 was the shipped value; 0.2 is thin, 0 leaves the bare fill. */
+.nav-brand:hover { color: var(--primary-color); }
+.nav-links { display: flex; align-items: center; gap: 20px; font-size: 0.9rem; flex-wrap: wrap; justify-content: flex-end; }
+.nav-links a { color: var(--text-secondary); font-weight: 500; white-space: nowrap; }
+.nav-links a:hover { color: var(--primary-color); }
+@media (max-width: 560px) {
+  .nav-inner { padding: 0 16px; gap: 8px; }
+  .nav-links { gap: 12px; font-size: 0.82rem; }
+}
+
+/* ---------- TL;DR callout (prose with inline highlights) ---------- */
+.tldr-callout {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 18px 24px;
+  background: var(--background-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  font-size: 1.02rem;
+  line-height: 1.62;
+  color: var(--text-primary);
+  text-align: left;
+}
+.tldr-callout p { margin: 0; }
+.tldr-lead { font-family: 'Space Grotesk', 'Inter', sans-serif; font-weight: 700; color: var(--text-primary); }
+.tldr-hi {
+  display: inline-block;
+  padding: 1px 7px;
+  margin: 0 1px;
+  background: rgba(37, 99, 235, 0.10);
+  color: var(--primary-color);
+  border-radius: 5px;
+  font-weight: 600;
+  font-size: 0.95em;
+}
+
+/* ---------- Highlight / contribution cards (match .results-carousel .item) ---------- */
+.tldr-grid { margin-top: 1rem; }
+.tldr-card {
+  height: 100%;
+  padding: 1.5rem;
+  background: var(--background-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-md);
+  transition: var(--transition);
+}
+.tldr-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+.tldr-card .tldr-icon { font-size: 1.5rem; color: var(--primary-color); margin-bottom: 0.5rem; }
+.tldr-card h3 { font-weight: 700; margin-bottom: 0.4rem; color: var(--text-primary); }
+.tldr-card p { color: var(--text-secondary); }
+
+/* ---------- Result tables ---------- */
+.result-table-wrap {
+  overflow-x: auto;
+  background: var(--background-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-sm);
+}
+table.result-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+  color: var(--text-primary);
+}
+table.result-table th,
+table.result-table td { padding: 5px 6px; text-align: center; white-space: nowrap; }
+table.result-table thead th { border-bottom: 2px solid var(--text-primary); font-weight: 700; }
+table.result-table thead tr.subhead th { font-weight: 600; font-size: 0.82rem; color: var(--text-secondary); }
+table.result-table tbody td:first-child,
+table.result-table tbody th:first-child { text-align: left; }
+table.result-table td.init { text-align: center !important; }
+table.result-table tbody tr { border-bottom: 1px solid var(--border-color); }
+table.result-table .group-sep td,
+table.result-table .group-sep th { border-top: 1px solid #cbd5e1; }
+table.result-table tr.is-ours { background: var(--background-accent); }
+table.result-table .best { font-weight: 700; }
+table.result-table .second { text-decoration: underline; }
+.delta-pos { color: #16a34a; }
+.delta-neg { color: #dc2626; }
+.table-note { font-size: 0.82rem; color: var(--text-secondary); margin-top: 0.6rem; }
+
+/* ---------- Figures (inherit template img look) ---------- */
+.method-figure img,
+.hero-visual__media img {
+  transition: var(--transition);
+}
+.method-figure img { max-width: 760px; width: 100%; display: block; margin: 0 auto; border-radius: var(--border-radius); box-shadow: var(--shadow-md); }
+.method-figure img:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+.figure-caption { color: var(--text-secondary); font-size: 0.92rem; margin-top: 0.8rem; }
+
+/* ---------- Citation / BibTeX section ---------- */
+.citation-section { border-top: 1px solid var(--border-color); }
+.section-eyebrow {
+  font-family: 'Space Grotesk', 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 0.78rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin-bottom: 0.15rem !important;
+}
+.bibtex-header .title.bibtex-title { margin-bottom: 0 !important; }
+
+/* unify section-title underline with the blue accent (was pink-red gradient) */
+.title.is-3::after { background: linear-gradient(135deg, var(--primary-color), var(--accent-color)) !important; }
+
+/* ---------- Not-yet-released links ---------- */
+.publication-links .button.is-soon {
+  background: var(--background-accent);
+  color: var(--text-light);
+  border: 1px solid var(--border-color);
+  box-shadow: none;
+  cursor: default;
+  pointer-events: none;
+}
+.publication-links .button.is-soon .icon { opacity: 0.7; }
+.links-note {
+  margin-top: 0.7rem;
+  font-size: 0.78rem;
+  color: var(--text-light);
+  text-align: center;
+}
+
+/* ---------- Results stat cards ---------- */
+.stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 0 auto 2rem; }
+.stat-card {
+  background: var(--background-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-md);
+  padding: 20px 18px;
+  text-align: left;
+}
+.stat-card.is-ours { background: var(--background-accent); border-color: var(--primary-color); }
+.stat-val {
+  font-family: 'Space Grotesk', 'Inter', sans-serif; font-weight: 700;
+  font-size: 2.3rem; line-height: 1; letter-spacing: -0.02em;
+  color: var(--primary-color); font-variant-numeric: tabular-nums;
+}
+.stat-val small { font-size: 1.2rem; font-weight: 700; }
+.stat-lab { font-weight: 600; margin-top: 10px; color: var(--text-primary); }
+.stat-lab .scope { color: var(--text-light); font-weight: 500; }
+.stat-desc { color: var(--text-secondary); font-size: 0.86rem; margin-top: 4px; line-height: 1.45; }
+@media (max-width: 640px) { .stat-row { grid-template-columns: 1fr; } }
