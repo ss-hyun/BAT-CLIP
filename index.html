@@ -414,6 +414,7 @@
           </tbody>
         </table>
       </div>
+      <p class="table-scroll-hint" aria-hidden="true">&#8592; swipe to see all columns &#8594;</p>
       <p class="table-note">
         <b>Table 1.</b> Overall decoding performance averaged over 9 subjects. &Delta; is the relative
         gain over the supervised CNN baseline. <sup>&dagger;</sup>CNN uses full fine-tuning; all other
@@ -495,6 +496,7 @@
           </tbody>
         </table>
       </div>
+      <p class="table-scroll-hint" aria-hidden="true">&#8592; swipe to see all columns &#8594;</p>
       <p class="table-note">
         <b>Table 2.</b> CLIP-aligned models trained from scratch vs. initialized from pretrained DIVER-1.
         <span class="best">Bold</span> marks the stronger initialization per column within each method.
@@ -518,6 +520,7 @@
               </tbody>
             </table>
           </div>
+          <p class="table-scroll-hint" aria-hidden="true">&#8592; swipe to see all columns &#8594;</p>
           <p class="table-note">
             <b>Table 3.</b> Sentence-level clustering of the word embeddings in Fig. 2 (Sub03). Higher is better;
             BAT-CLIP yields the tightest intra-sentence grouping and strongest inter-sentence separation.
@@ -564,5 +567,32 @@
   </footer>
 
   </main>
+
+  <!-- Reveal the swipe hint only on tables that actually overflow their wrapper. -->
+  <script>
+    (function () {
+      var wraps = Array.prototype.slice.call(document.querySelectorAll('.result-table-wrap'));
+      function sync() {
+        wraps.forEach(function (w) {
+          var scrollable = w.scrollWidth - w.clientWidth > 4;
+          w.classList.toggle('is-scrollable', scrollable);
+          // Keyboard users need a focusable scroll port to reach the hidden columns.
+          if (scrollable) {
+            w.setAttribute('tabindex', '0');
+            w.setAttribute('role', 'region');
+            w.setAttribute('aria-label', 'Results table, scrollable horizontally');
+          } else {
+            w.removeAttribute('tabindex');
+            w.removeAttribute('role');
+            w.removeAttribute('aria-label');
+          }
+        });
+      }
+      sync();
+      window.addEventListener('resize', sync);
+      window.addEventListener('load', sync);
+      if (document.fonts && document.fonts.ready) { document.fonts.ready.then(sync); }
+    })();
+  </script>
 </body>
 </html>

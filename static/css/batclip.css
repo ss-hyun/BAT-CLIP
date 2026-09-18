@@ -287,7 +287,7 @@ table.result-table .second { text-decoration: underline; }
 }
 
 /* ---------- Results stat cards ---------- */
-.stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 0 auto 2rem; }
+.stat-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 14px; margin: 0 auto 2rem; }
 .stat-card {
   background: var(--background-primary);
   border: 1px solid var(--border-color);
@@ -306,4 +306,195 @@ table.result-table .second { text-decoration: underline; }
 .stat-lab { font-weight: 600; margin-top: 10px; color: var(--text-primary); }
 .stat-lab .scope { color: var(--text-light); font-weight: 500; }
 .stat-desc { color: var(--text-secondary); font-size: 0.86rem; margin-top: 4px; line-height: 1.45; }
-@media (max-width: 640px) { .stat-row { grid-template-columns: 1fr; } }
+/* ============================================================
+   RESPONSIVE FIXES
+   ------------------------------------------------------------
+   Root cause of the mobile blow-out: Bulma's .hero is a column
+   flex container and .container uses `margin: 0 auto`, so the
+   container is sized fit-content rather than stretched. The
+   result tables set `white-space: nowrap`, which gives them a
+   ~890px min-content width -- that width propagated up into
+   .container, pushing every section (stat cards included) past
+   the viewport, where Bulma's `html { overflow-x: hidden }`
+   silently clipped it instead of offering a scrollbar.
+   Pinning the container to width:100% restores the viewport
+   width and lets .result-table-wrap's overflow-x actually scroll.
+   ============================================================ */
+.section > .container,
+.hero-body > .container {
+  width: 100%;
+  min-width: 0;
+}
+/* flex/grid children must be allowed to shrink below their content */
+.columns > .column { min-width: 0; }
+
+/* The BibTeX block used to be centred at its natural width purely because the
+   container was fit-content; pinning the container to 100% would have stretched
+   it to the full 960px. Keep the old look explicitly, and let it scroll once the
+   entry no longer fits. */
+#bibtex-code {
+  width: -moz-fit-content;
+  width: fit-content;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ---------- Wide result tables: real horizontal scroll ---------- */
+.result-table-wrap {
+  max-width: 100%;
+  min-width: 0;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
+  /* Scroll affordance: the two `local` gradients are the white masks that
+     travel with the content, the two `scroll` gradients are the edge shadows
+     that stay pinned -- a shadow shows only while there is more table that
+     way. */
+  background-image:
+    linear-gradient(to right, var(--background-primary) 45%, rgba(255, 255, 255, 0)),
+    linear-gradient(to left, var(--background-primary) 45%, rgba(255, 255, 255, 0)),
+    linear-gradient(to right, rgba(15, 23, 42, 0.13), rgba(15, 23, 42, 0)),
+    linear-gradient(to left, rgba(15, 23, 42, 0.13), rgba(15, 23, 42, 0));
+  background-position: 0 0, 100% 0, 0 0, 100% 0;
+  background-repeat: no-repeat;
+  background-size: 34px 100%, 34px 100%, 13px 100%, 13px 100%;
+  background-attachment: local, local, scroll, scroll;
+}
+/* Shown only when the table really does overflow its wrapper -- the
+   `is-scrollable` class is set (and kept in sync on resize) by the inline
+   script at the bottom of index.html. */
+.result-table-wrap.is-scrollable + .table-scroll-hint { display: block; }
+.result-table-wrap:focus-visible { outline: 2px solid var(--primary-color); outline-offset: 2px; }
+.table-scroll-hint {
+  display: none;
+  margin: 0.45rem 0 0;
+  font-size: 0.74rem;
+  color: var(--text-light);
+  text-align: right;
+}
+
+@media (max-width: 768px) {
+  /* Below the desktop layout the tables can no longer fit; keep the row label
+     visible while the reader swipes through the metric columns. */
+  table.result-table { font-size: 0.76rem; }
+  table.result-table th,
+  table.result-table td { padding: 5px 7px; }
+  table.result-table thead tr.subhead th { font-size: 0.72rem; }
+
+  table.result-table thead th:first-child,
+  table.result-table tbody td:first-child,
+  table.result-table tbody th:first-child {
+    position: sticky;
+    left: 0;
+    z-index: 2;
+    background: var(--background-primary);
+    box-shadow: 1px 0 0 var(--border-color);
+  }
+  table.result-table tbody tr.is-ours td:first-child,
+  table.result-table tbody tr.is-ours th:first-child { background: var(--background-accent); }
+
+  .table-note { font-size: 0.78rem; }
+}
+
+@media (max-width: 640px) {
+  .stat-card { padding: 16px 15px; }
+  .stat-val { font-size: 1.9rem; }
+  .stat-val small { font-size: 1.05rem; }
+  .stat-lab { margin-top: 8px; font-size: 0.95rem; }
+  .stat-desc { font-size: 0.82rem; }
+
+  #bibtex-code { font-size: 0.72rem !important; padding: 1rem 1.1rem !important; }
+  .method-figure img { border-radius: var(--border-radius); }
+}
+
+@media (max-width: 420px) {
+  table.result-table { font-size: 0.71rem; }
+  table.result-table th,
+  table.result-table td { padding: 4px 5px; }
+}
+
+/* ============================================================
+   RESPONSIVE TYPOGRAPHY
+   ------------------------------------------------------------
+   Two different rules govern two kinds of type:
+     - Display type (title, section headings, the author block,
+       captions, legend pills) is sized against the CONTAINER, so
+       it has to shrink as the container does. On a 390px phone the
+       container is 0.34x its desktop width while these stayed at
+       0.67-1.0x, which is what made the page feel oversized.
+     - Body copy is sized against LEGIBILITY, not layout. 16px is
+       the floor, so paragraphs and list items are deliberately
+       left alone here.
+   Everything is scoped to <=768px (mostly <=640px), so the desktop
+   composition at >=1024px is byte-for-byte unchanged.
+   ============================================================ */
+
+/* The affiliation line carries BOTH .publication-authors and
+   .author-affiliations. index.css has
+     @media (max-width:768px) { .publication-authors { font-size: 1rem !important } }
+   which outranked the plain 0.86rem above and made the line *larger*
+   on a phone (16px) than on desktop (13.76px). Restore it at the
+   desktop weight. */
+@media (max-width: 768px) {
+  .author-affiliations { font-size: 0.86rem !important; }
+}
+
+@media (max-width: 640px) {
+  /* Fluid from 40px at 640px -- the value index.css already uses there,
+     so the two meet with no jump -- down to ~25px on a 390px screen:
+     7.1% of the container against the desktop's 5.0%, where it sits at
+     9.1% today. */
+  .publication-title { font-size: clamp(1.6rem, 6.4vw, 2.5rem) !important; }
+  .publication-eyebrow { font-size: 0.72rem; letter-spacing: 0.08em; }
+  /* The author block is the one place where matching the desktop
+     proportion exactly (title:names = 3.0) is impossible -- it would put
+     the names at 8.5px. 12px is the practical floor for a 12-name list,
+     which brings the ratio to 2.13 and folds the names onto 4 lines and
+     the affiliations onto 1. Nothing here goes below 10px. */
+  .publication-authors { font-size: 0.75rem !important; }
+  .author-affiliations { font-size: 0.66rem !important; }
+  .publication-notes .eql-cntrb { font-size: 0.65rem; }
+  .links-note { font-size: 0.72rem; }
+
+  /* The gaps in this block come from a flat `margin-bottom: 1.5rem` that
+     index.css puts on .publication-authors -- which the affiliation and note
+     lines also carry -- so they stayed at 24px while the type they separate
+     shrank by a quarter to a third. Re-derive each one from the desktop
+     gap:font ratio (0.67x the title, 1.44x the names, 1.35x the affiliation,
+     1.50x the note). Each element needs its own rule because all three share
+     the .publication-authors class, and the margin-bottom values below are
+     back-calculated against the negative margin-tops already tuned above. */
+  .publication-eyebrow { margin-bottom: 0.3rem; }
+  .publication-title { margin-bottom: 1.05rem !important; }
+  .publication-authors { margin-bottom: 1.1rem; }
+  .author-affiliations { margin-bottom: 1.2rem; }
+  .publication-notes { margin-bottom: 1.15rem; }
+
+  .title.is-3 { font-size: 1.45rem !important; }
+  .title.is-5 { font-size: 1.05rem !important; }
+
+  .figure-caption { font-size: 0.82rem; }
+  .hero-caption { font-size: 0.72rem; padding: 0.6rem 0.9rem 0.7rem; }
+  .ml-pill { font-size: 0.76rem; padding: 5px 12px; }
+
+  /* Body copy intentionally NOT reduced -- see the note above. */
+}
+
+@media (max-width: 480px) {
+  /* index.css turns the three header links into full-width stacked
+     buttons below 480px, which costs ~200px of the first screen. They
+     fit on a single line at this size even at 360px. */
+  .publication-links { display: flex; flex-wrap: wrap; justify-content: center; }
+  .publication-links .link-block {
+    display: inline-block !important;
+    margin-bottom: 0 !important;
+  }
+  .publication-links .button {
+    width: auto !important;
+    font-size: 0.72rem !important;
+    padding: 0.6rem 0.95em !important;
+    margin: 0.2rem !important;
+  }
+  .publication-links .button .icon,
+  .publication-links .button .icon i { font-size: 0.85rem; }
+}
